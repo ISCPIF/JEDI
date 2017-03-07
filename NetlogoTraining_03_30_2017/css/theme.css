@@ -1,0 +1,39 @@
+b{
+	color: #8a0;
+}
+
+.blue{
+	color: #0cf;
+}
+
+.red{
+	color: #f55;
+}
+
+div.title{
+	text-align: center;
+	font-weight: bold;
+}
+
+.right{
+  float: right;
+}
+
+/* http://stackoverflow.com/a/489002/470341 */
+ol { counter-reset: item; }
+ol li { display: block; }
+ol li:before {
+  content: counter(item) ". ";
+  counter-increment: item;
+  color: #8a0;
+}
+
+.reveal section img {
+  background:none;
+  border:none;
+  box-shadow:none;
+}
+
+.reveal pre {
+  max-width: 100% !important;
+}
