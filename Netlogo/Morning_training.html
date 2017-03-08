@@ -58,132 +58,180 @@
     <div class="slides">
 
       <section>
-        <h1>Netlogo training</h1> 
-        <img src="./img/netlogo-banner.jpg" width="75%"/>
+
+        <img src="./img/netlogo-banner.jpg" width="100%" style="position:top"/>
+        <h2>NetLogo JEDI Training Session #1</h2> 
+        March 30<sup style="font-size:70%">th</sup> 2017
+        <br></br>
+        Paul Chapron - Sebastien Rey-Coyrehourcq
+        <img src="./img/isccube.png" width="30%" style="margin: 0px auto;display:block" />
+
+
       </section>
 
       <section>
-        <h2>Les modèles numériques</h2>
-        <img src="./images/modelIO.png" width="55%" style=""/>
-      </section>
-        
-        <section>
-        <h2>Le modèle simplu3D (IGN)</h2>
-            <h4><i>Un modèle qui génère des bâtiments respectant la règlementation en vigueur (PLU)</i></h4>
-            <br/>
-        <img src="./images/simplu3D.png" width="85%" style=""/>
-      </section>
+       <h1> Outline</h1>  
+       <ul>
+        <li> What is Netlogo ? </li>
+        <li> A world of Agents</li>
+        <li> Patches</li>
+        <li> Turtles</li>
+        <li> Networks</li>
+        <li> Interactions</li>
+        <li> Inputs / Outputs </li>
+      </ul>
+
+
+    </section>
+
+    <section>
+      <h2>What is NetLogo ?</h2> 
+      <img src="./img/netlogo_logo.png" width="20%" style="align:left" />
+    </br>
+      <ul>
+        <li> A programming language </li>
+        <li> A toolkit </li>
+        <li> An Integrated Development Environment </li>
+      </ul>
+      <br></br>
+      for <b>A</b>gent <b>B</b>ased <b>M</b>odels (ABM) 
+      <br></br>
+      <small> Most of content comes from <a href="https://subversion.american.edu/aisaac/notes/netlogo-basics.xhtml">https://subversion.american.edu/aisaac/notes/netlogo-basics.xhtml</a>
+      </small>
+
+    </section>
+
+
+ <section>
+      <h3>What is NetLogo ?</h3> 
+      <ul>
+        <li> A programming language </li>
+        <li> A toolkit </li>
+        <li> An Integrated Development Environment </li>
+      </ul>
+      <br></br>
+      
+      for Agent Based Models 
+      <br></br>
+      <small> Most of content comes from <a href="https://subversion.american.edu/aisaac/notes/netlogo-basics.xhtml">https://subversion.american.edu/aisaac/notes/netlogo-basics.xhtml</a>
+      </small>
+
+    </section>
+
+    <section>
+      <h2>Le modèle simplu3D (IGN)</h2>
+      <h4><i>Un modèle qui génère des bâtiments respectant la règlementation en vigueur (PLU)</i></h4>
+      <br/>
+      <img src="./images/simplu3D.png" width="85%" style=""/>
+    </section>
     
-        
-          <section>
-        <h2>Une question:</h2><br/><br/>
-            <h3><i>Pour un parcellaire donné, quelles sont toutes les configurations bâties différentes respectant la réglementation ?</i></h3>
-        <img src="./images/confused.jpg" width="45%" style="margin-top:60px; margin-left: 500px;"/>
-      </section>
 
-          <section>
-        <h2>Une réponse:</h2>
-            <h3><i>Testons toutes les valeurs que peuvent prendre chacun des paramètres et générons ainsi tous les scénarios possibles !</i></h3>
-        <img src="./images/handraised.jpg" width="35%" style=""/>
-      </section>
-        
-                   <section>
-        <h2>Tous les scénarios ... ?</h2>
-        <img src="./images/simplu3DNbConfigs.png" width="81%" style="left:-250px; top: 40px;position:relative;"/>
-        <img src="./images/tempsCalculSimplu" width="50%" style="left: 250px; bottom: -80px; position: relative;"/>
-      </section>
-        
-           <section>
-        <h2>Une meilleure réponse?</h2>
-            <h3><i> Testons moins de valeurs pour chaque paramètre, ça ira plus vite !</i></h3>
-        <img src="./images/handraised.jpg" width="35%" style="margin-bottom:-175px"/>
-      </section>
-        
-         <section>
-        <h2>Limitations de l'exploration systématique</h2>
-            <br/>
-        <img src="./images/gridLimitation.png" width="75%" >
-             
-      </section>
-        
-          <section>
-        <h2>Une autre approche</h2>
-              <br/>
-        <img src="./images/simpluOutputSpace.png" width="100%" style="margin-top:-20px;" >
-             
-      </section>
-        
-         
-          <section>
-        <h2>Pattern Search Exploration</h2>
-        <img src="./images/flockingvolumediscovered.svg" width="60%" style="bottom: 50px;">
-             
-      </section>
-        
-       <section>
-        <img src="./images/comparatifPSE.png" width="60%" style="bottom: 50px;">   
-      </section>
-        
-         <section>
-             <h2>Objections</h2>
-            <br/><br/>  
-            <h3><i>65 ans de calcul, c'est encore très long !</i></h3><br/>
-            <h3><i>Ça ne marchera jamais avec mon modèle !</i></h3>
-        <img src="./images/handsup.png" width="60%">   
-      </section>
-        
-         <section>
-        <img src="./images/omV3.png" sytle="z-index:20;">   
-      </section>
+    <section>
+      <h2>Une question:</h2><br/><br/>
+      <h3><i>Pour un parcellaire donné, quelles sont toutes les configurations bâties différentes respectant la réglementation ?</i></h3>
+      <img src="./images/confused.jpg" width="45%" style="margin-top:60px; margin-left: 500px;"/>
+    </section>
 
-         <section>
-            <h2>Un aperçu d'OpenMOLE</h2>
-        <img src="./images/openmoleWeb.png" width="100%">   
-      </section>
-<!--
-         <section>
-          <h5> Un outil d'aide à la décision en urbanisme </h5>
-            <video width="80%" height="50%" autoplay controls>
-                <source src="visu_interactives/capture_visuPSE.webm" type="video/webm">
-            </video>
-      </section> -->
-      <section>
-          <h2> Un outil d'aide à la décision en urbanisme </h2>
-          <br>
-          <br>
-          <a href="http://demoapp.openmole.org:25000/visuPSE/" target="_blank"> Run the demo </a>
-      <!--iframe src="http://demoapp.openmole.org:25000/visuPSE/" style=" position: bottom; height: 100vh; width: 100%; " frameborder="0" name="targetframe" allowTransparency="true" scrolling="no"  -->  
-      </iframe>
-      
-      </section>
+    <section>
+      <h2>Une réponse:</h2>
+      <h3><i>Testons toutes les valeurs que peuvent prendre chacun des paramètres et générons ainsi tous les scénarios possibles !</i></h3>
+      <img src="./images/handraised.jpg" width="35%" style=""/>
+    </section>
 
-      <section>
-            <h2>Scénario 1 : Une cour intérieure</h2>
-       
-      <iframe src="visu_interactives/cour_interieure.html" style=" position: top; height: 80vh; width: 100%; " frameborder="0" name="targetframe" allowTransparency="true" scrolling="no"  >  </iframe>
-      </section>
+    <section>
+      <h2>Tous les scénarios ... ?</h2>
+      <img src="./images/simplu3DNbConfigs.png" width="81%" style="left:-250px; top: 40px;position:relative;"/>
+      <img src="./images/tempsCalculSimplu" width="50%" style="left: 250px; bottom: -80px; position: relative;"/>
+    </section>
 
-      <section>
-            <h2>Scénario 2 : Des allées </h2>
-      <iframe src="visu_interactives/allees.html" style=" position: top; height: 80vh; width: 100%; " frameborder="0" name="targetframe" allowTransparency="true" scrolling="no"  >  
-       
-      </iframe>
-      </section>
+    <section>
+      <h2>Une meilleure réponse?</h2>
+      <h3><i> Testons moins de valeurs pour chaque paramètre, ça ira plus vite !</i></h3>
+      <img src="./images/handraised.jpg" width="35%" style="margin-bottom:-175px"/>
+    </section>
 
-      <section> 
-          <img src="./images/hackingPageEnd.png" width="85%" style="display : inline-block">
-      </section>
+    <section>
+      <h2>Limitations de l'exploration systématique</h2>
+      <br/>
+      <img src="./images/gridLimitation.png" width="75%" >
+
+    </section>
+
+    <section>
+      <h2>Une autre approche</h2>
+      <br/>
+      <img src="./images/simpluOutputSpace.png" width="100%" style="margin-top:-20px;" >
+
+    </section>
 
 
-    </div>
+    <section>
+      <h2>Pattern Search Exploration</h2>
+      <img src="./images/flockingvolumediscovered.svg" width="60%" style="bottom: 50px;">
 
-      
-      
-    </div>
-    <script src="js/reveal.js/lib/js/head.min.js"></script>
-    <script src="js/reveal.js-min/js/reveal.min.js"></script>
+    </section>
 
-    <script>
+    <section>
+      <img src="./images/comparatifPSE.png" width="60%" style="bottom: 50px;">   
+    </section>
+
+    <section>
+     <h2>Objections</h2>
+     <br/><br/>  
+     <h3><i>65 ans de calcul, c'est encore très long !</i></h3><br/>
+     <h3><i>Ça ne marchera jamais avec mon modèle !</i></h3>
+     <img src="./images/handsup.png" width="60%">   
+   </section>
+
+   <section>
+    <img src="./images/omV3.png" sytle="z-index:20;">   
+  </section>
+
+  <section>
+    <h2>Un aperçu d'OpenMOLE</h2>
+    <img src="./images/openmoleWeb.png" width="100%">   
+  </section>
+
+  <section>
+    <h2>Scénario 1 : Une cour intérieure</h2>
+
+    <iframe src="visu_interactives/cour_interieure.html" style=" position: top; height: 80vh; width: 100%; " frameborder="0" name="targetframe" allowTransparency="true" scrolling="no"  >  </iframe>
+  </section>
+
+  <section>
+    <h2>Scénario 2 : Des allées </h2>
+    <iframe src="visu_interactives/allees.html" style=" position: top; height: 80vh; width: 100%; " frameborder="0" name="targetframe" allowTransparency="true" scrolling="no"  >  
+
+    </iframe>
+  </section>
+
+  <section> 
+    <img src="./images/hackingPageEnd.png" width="85%" style="display : inline-block">
+  </section>
+
+  <section>
+References :
+
+<a href="https://subversion.american.edu/aisaac/notes/netlogo-basics.xhtml">https://subversion.american.edu/aisaac/notes/netlogo-basics.xhtml</a>
+
+<a href="https://subversion.american.edu/aisaac/notes/netlogo-intro.xhtml">https://subversion.american.edu/aisaac/notes/netlogo-intro.xhtml</a>
+
+  </section>
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+<script src="js/reveal.js/lib/js/head.min.js"></script>
+<script src="js/reveal.js-min/js/reveal.min.js"></script>
+
+<script>
 
     // Full list of configuration options available here:
     // https://github.com/hakimel/reveal.js#configuration
@@ -198,29 +246,29 @@
 
       // Optional libraries used to extend on reveal.js
       dependencies: [
-        {src: 'js/reveal.js/lib/js/classList.js', condition: function() {
-          return !document.body.classList;
-        }},
-        {src: 'js/reveal.js/plugin/markdown/marked.js', condition: function() {
-          return !!document.querySelector('[data-markdown]');
-        }},
-        {src: 'js/reveal.js/plugin/markdown/markdown.js', condition: function() {
-          return !!document.querySelector('[data-markdown]');
-        }},
-        {src: 'js/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() {
-          hljs.initHighlightingOnLoad();
-        }},
-        {src: 'js/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() {
-          return !!document.body.classList;
-        }},
-        {src: 'js/reveal.js/plugin/notes/notes.js', async: true, condition: function() {
-          return !!document.body.classList;
-        }}
+      {src: 'js/reveal.js/lib/js/classList.js', condition: function() {
+        return !document.body.classList;
+      }},
+      {src: 'js/reveal.js/plugin/markdown/marked.js', condition: function() {
+        return !!document.querySelector('[data-markdown]');
+      }},
+      {src: 'js/reveal.js/plugin/markdown/markdown.js', condition: function() {
+        return !!document.querySelector('[data-markdown]');
+      }},
+      {src: 'js/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() {
+        hljs.initHighlightingOnLoad();
+      }},
+      {src: 'js/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() {
+        return !!document.body.classList;
+      }},
+      {src: 'js/reveal.js/plugin/notes/notes.js', async: true, condition: function() {
+        return !!document.body.classList;
+      }}
       ]
     });
 
 
-    </script>
+</script>
 
-  </body>
-  </html>
+</body>
+</html>

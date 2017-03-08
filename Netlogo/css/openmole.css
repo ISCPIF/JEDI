@@ -83,11 +83,16 @@ body {
 .reveal ol {
   list-style-type: decimal; }
 
-.reveal ul {
+.reveal ul {  
+  list-style: none;
   list-style-type: disc; }
 
 .reveal ul ul {
   list-style-type: square; }
+
+.reveal ul li::before {
+    color: #8a0;
+}
 
 .reveal ul ul ul {
   list-style-type: circle; }

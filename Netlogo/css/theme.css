@@ -28,6 +28,10 @@ ol li:before {
   color: #8a0;
 }
 
+li:before {
+    color: #8a0;
+}
+
 .reveal section img {
   background:none;
   border:none;
