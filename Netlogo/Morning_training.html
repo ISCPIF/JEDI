@@ -104,7 +104,7 @@
 
 
  <section>
-      <h2>ABM (easy)</h2> 
+      <h2>ABM</h2> 
       <br></br>
       <ul>
         <li> Entities </li>
@@ -113,14 +113,14 @@
       </ul>
       <br></br>
 
-      <img src="./img/kid.png" width="20%" style=" float:left;" />
+      <img src="./img/kid.png" width="15%" style=" float:left;" />
 <p align="justify">
 You tell entities what to do and see what happens.
 
     </section>
 
  <section>
-      <h2>ABM (normal)</h2> 
+      <h2>ABM</h2> 
       <ul>
         <li> Entities </li>
         <li> Environment </li>
@@ -136,7 +136,7 @@ You describe how entities <b>interact</b> in and with their environment, and obs
 </section>
 
  <section>
-      <h2>ABM (hard)</h2> 
+      <h2>ABM</h2> 
       <ul>
         <li> Entities </li>
         <li> Environment </li>
@@ -166,6 +166,8 @@ It allows to explore the connection between the <b>micro-level behavior</b> of i
 <h2>Netlogo is good for you</h2>
 <br> </br> 
 
+
+
       <ul>
         <li>Suited for modeling complex systems</li>
         <li> Simplicity of use</li>
@@ -174,13 +176,16 @@ It allows to explore the connection between the <b>micro-level behavior</b> of i
         <li> Bundled with a lot of models </li>
         <li> Multi-platforms </li>
       </ul>
+    <p>
+       <img src="./img/thumbs-up.jpg" width="70%" style="position: relative ; bottom: 20vh ;  z-index: -1;"/>
+      
 
 
 </section>
 
 
     <section>
-      <h2>Various environments</h2>
+      <h2>Various environments for agents</h2>
       <br/><br/>
      
        <img src="./img/network_ABM.gif" width="33%"/>
@@ -193,19 +198,170 @@ It allows to explore the connection between the <b>micro-level behavior</b> of i
 <small>sources : giphy.com , google images and <a href="http://www.cs.us.es/~fsancho/?e=137">http://www.cs.us.es/~fsancho/?e=137</a> </small>
     </section>
 
+<section>
+  <h2>A World of Agents </h2>
+<p>
+Pretty much everything is agent
+<p>
+<ul>
+  <li><b>Turtles</b>: Mobile Agents </li>
+  <li><b>Patches</b>: Discrete surface units of the World, location of turtles </li>
+  <li><b>Links</b>: Edges of a graph connecting turtles</li>
+  <li><b>The Observer</b>: the meta-agent that rules the world or Netlogo</li>
+</ul>
 
-    <section>
-      <h2>Various environments</h2>
-      
-     <ul>
-        <li>Lattices/Grids  </li>
-        <li>Networks</li>
-        <li>SIG data</li>
-      </ul>
+
+
+</section>
+
+
+<section>
+  <h2>Building a model</h2>
+
+is defining
+ <p>
+<ul>
+<li> the world characteristics (e.g. size) </li>
+<li> Global variables (e.g. temperature)</li>
+<li> Agents (turtles) variables (e.g. age) </li>
+<li> the behavior of turtles</li>
+<li> Inputs (e.g. parameters)</li>
+<li> Outputs (e.g. monitors)</li>
+</ul>
+</section>
+
+
+
+
+<section>
+  <h2>Netlogo GUI</h2>
+<b>
+<ul>
+  <li>GUI Panel</li>
+  <li>Info Panel</li>
+  <li>Code Panel</li> 
+</ul>
+</b>
+</section>
+
+
+
+<section>
+  <h1>First steps</h1>
 <br></br>
-      always discrete.
-    </section>
+Open an existing model and play around with it 
+<p>
+OR 
+<p>
+Create the first model from scratch
+<p>
 
+?
+
+</section>
+
+
+
+
+<section>
+  <h2>Existing models</h2>
+
+<ul> 
+<li> 
+  File -> Models Library. Pick one. 
+</li>
+<li> 
+Mess with buttons, sliders & observe consequences on behavior
+  </li>
+<li>
+  Look at the Info Tab
+</li>
+<li>
+Look at The Code
+</li>
+</ul>
+Suggestions: <p>
+
+<div style="float: left; width: 50%">
+<small>
+
+<ul>
+<li> Fire</li>  
+<li> Mousetraps</li>
+<li> Wolf Sheep Predation </li>
+<li>Life </li>
+<li>Fireworks</li>
+<li> Flocking</li>
+<li> Moths</li>
+
+</ul>
+</small>
+
+</div>
+
+<div style="float: right; width: 50%">
+<small>
+
+<ul>
+<li>Preferential Attachment</li>
+<li>Sunflower </li>
+<li> Game of Life </li>
+<li>Patch Clusters Example </li>
+<li>Bounce Example </li>
+<li>Hatch Example</li>
+<li>Network Example</li>
+
+</ul>
+</div>
+</small>
+
+</section>
+
+<section>
+  <h3>Model from scratch</h3>
+
+<ol><li> create some turtles, and name the procedure setup</li>
+</ol>
+
+
+
+<p align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
+
+<pre>
+to setup 
+  clear-all
+  create-turtles 20 
+end
+</pre>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+<section>
+  <h2>Notice the colors in the code:</h2>
+<p align="left">
+ <font color="#339966">greenish </font>  for reserved keywords  ()
+<p align="left">
+ <font color="#0033cc">blue</font> for commands 
+<p align="left">
+ <font color="#cc66ff">violet </font> for everything built-in : agents default variables, functions, agentsets   
+<p align="left">
+ <font color="#cc9900">orange </font> for values  
+<p align="left">
+<font color="#999999">grey</font> for comments
+<p>
+
+Black is for the name of things you declare : variables , procedures
+</section>
 
 
 
