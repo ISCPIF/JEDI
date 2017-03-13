@@ -237,7 +237,7 @@ is defining
   <h2>Netlogo GUI</h2>
 <b>
 <ul>
-  <li>GUI Panel</li>
+  <li>Interface Panel</li>
   <li>Info Panel</li>
   <li>Code Panel</li> 
 </ul>
@@ -320,25 +320,30 @@ Suggestions: <p>
 <section>
   <h3>Model from scratch</h3>
 
-<ol><li> create some turtles, and name the procedure setup</li>
-</ol>
+
+  <ol><li>Create some turtles, and name the procedure <b>setup</b></li>
 
 
+    <p align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
 
-<p align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
-
-<pre>
+      <pre>
 to setup 
-  clear-all
+  clear-all   
   create-turtles 20 
 end
-</pre>
+      </pre>
 
+    <li> Ask the turtles to move forward, name the procedure <b>move</b></li>
 
+  <p align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
 
-
-
-
+    <pre>
+to move 
+  ask turtles [forward 1] 
+end
+    </pre>
+  </p>
+  </ol>
 </section>
 
 
@@ -355,101 +360,154 @@ end
 <p align="left">
  <font color="#cc66ff">violet </font> for everything built-in : agents default variables, functions, agentsets   
 <p align="left">
- <font color="#cc9900">orange </font> for values  
+ <font color="#cc9900">orange </font> for hard-coded values  
 <p align="left">
 <font color="#999999">grey</font> for comments
-<p>
+<p align="left">
 
-Black is for the name of things you declare : variables , procedures
+black for the name of things you declare : variables , procedures
+</section>
+
+
+
+<section>
+  <h3>Build the Interface</h3>
+<ul>
+  <li>Interface panel</li>
+  <li>Select / move / edit / delete stuff with right click</li>
+  <li>World characteristics via the Settings Button</li> 
+  <li> Mind the naming (e.g. avoid mixed cases , mixed dashes and underscores )</li>
+</ul>
+
+
+</section>
+
+
+<section>
+  <h3>Adding stuff in the GUI : Inputs</h3>
+
+<ul>
+  <li><b>Buttons</b>: to call procedures </li>
+  <li><b>Sliders</b>: to define a global numeric variable in a domain</li>
+  <li><b>Switch</b>: to define a boolean global variable </li>
+  <li><b> Chooser</b>: to define a global variable among a list of choices </li>
+  <li><b>Input</b>: for user Input</li>
+  <li>(<b>Note</b>: text zone)</li>
+
+
+</ul>
+
+</section>
+
+
+<section>
+  <h3>Adding stuff in the GUI : Outputs</h3>
+
+
+<ul>
+  <li><b>Monitors</b>: display value from a reporter (variable, procedure) </li>
+  <li><b>Plots</b>: shows data </li>
+  <li><b>Output</b>: scrolling text area with logs</li>
+
+
+</ul>
+
 </section>
 
 
 
 
-    <section>
-      <h2>Une réponse:</h2>
-      <h3><i>Testons toutes les valeurs que peuvent prendre chacun des paramètres et générons ainsi tous les scénarios possibles !</i></h3>
-      <img src="./images/handraised.jpg" width="35%" style=""/>
-    </section>
+<section>
+  <h1>Trial #1</h1>
 
-    <section>
-      <h2>Tous les scénarios ... ?</h2>
-      <img src="./images/simplu3DNbConfigs.png" width="81%" style="left:-250px; top: 40px;position:relative;"/>
-      <img src="./images/tempsCalculSimplu" width="50%" style="left: 250px; bottom: -80px; position: relative;"/>
-    </section>
+How to do that 
 
-    <section>
-      <h2>Une meilleure réponse?</h2>
-      <h3><i> Testons moins de valeurs pour chaque paramètre, ça ira plus vite !</i></h3>
-      <img src="./images/handraised.jpg" width="35%" style="margin-bottom:-175px"/>
-    </section>
+<p>
+<img src="img/square.png" style="border:2px solid black"  width="30%">
+<img src="img/damier.png" style="border:2px solid black" width="30%">
+<img src="img/quadrants.png" style="border:2px solid black" width="30%">
 
-    <section>
-      <h2>Limitations de l'exploration systématique</h2>
-      <br/>
-      <img src="./images/gridLimitation.png" width="75%" >
-
-    </section>
-
-    <section>
-      <h2>Une autre approche</h2>
-      <br/>
-      <img src="./images/simpluOutputSpace.png" width="100%" style="margin-top:-20px;" >
-
-    </section>
+<p>
+asking patches to turn white ?
 
 
-    <section>
-      <h2>Pattern Search Exploration</h2>
-      <img src="./images/flockingvolumediscovered.svg" width="60%" style="bottom: 50px;">
+</section>
 
-    </section>
+<section>
+  <h3>Trial #1 Tips</h3>
 
-    <section>
-      <img src="./images/comparatifPSE.png" width="60%" style="bottom: 50px;">   
-    </section>
+Patches have built-in variables :
+<ul>
+  <li><b>pxcor </b> the x-coordinate of the patch </li>
+  <li><b>pycor </b> the y-coordinate of the patch </li>
+  <li><b>pcolor</b> the color of the patch </li>
+</ul>
 
-    <section>
-     <h2>Objections</h2>
-     <br/><br/>  
-     <h3><i>65 ans de calcul, c'est encore très long !</i></h3><br/>
-     <h3><i>Ça ne marchera jamais avec mon modèle !</i></h3>
-     <img src="./images/handsup.png" width="60%">   
-   </section>
+<br><br>
+Try :
+    <p align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
 
-   <section>
-    <img src="./images/omV3.png" sytle="z-index:20;">   
-  </section>
+      <pre>
+ask patches [ set pcolor white ]
+      </pre>
+</section>
 
-  <section>
-    <h2>Un aperçu d'OpenMOLE</h2>
-    <img src="./images/openmoleWeb.png" width="100%">   
-  </section>
 
-  <section>
-    <h2>Scénario 1 : Une cour intérieure</h2>
+<section>
+  <h3>Trial #1 Learnings</h3>
 
-    <iframe src="visu_interactives/cour_interieure.html" style=" position: top; height: 80vh; width: 100%; " frameborder="0" name="targetframe" allowTransparency="true" scrolling="no"  >  </iframe>
-  </section>
+<ul>
+  <li><b>ask </b> tell the agents what to do  </li>
+  <li>Syntax : <div align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
+ask some-agents [do-something]
+<br>
+  <li><b>set</b> changes the value of a variable </li>
+  <li>Syntax : <div align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
+set my-variable value
+</ul>
 
-  <section>
-    <h2>Scénario 2 : Des allées </h2>
-    <iframe src="visu_interactives/allees.html" style=" position: top; height: 80vh; width: 100%; " frameborder="0" name="targetframe" allowTransparency="true" scrolling="no"  >  
+</section>
 
-    </iframe>
-  </section>
 
-  <section> 
-    <img src="./images/hackingPageEnd.png" width="85%" style="display : inline-block">
-  </section>
+
+
+<section>
+  <h3>Trial #1 Tips</h3>
+
+
+<p align="left">
+Patches is a <b>set</b> (of patches)
+<br>
+Sets elements can be <b>selected</b> by providing a <b>boolean condition</b> via the keyword <b>with</b>.    
+<br>
+Syntax : <div align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
+my-set <font color="#cc66ff"> with </font> [my-condition]
+</p>
+
+<br>
+Try:
+<p align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
+
+      <pre>
+ask patches with [pxcor > 0 ]  [ set pcolor white ]
+      </pre>
+
+</section>
+
+
+
+
 
   <section>
 References :
-
+<br>
+<small>
+<p align="left">
 <a href="https://subversion.american.edu/aisaac/notes/netlogo-basics.xhtml">https://subversion.american.edu/aisaac/notes/netlogo-basics.xhtml</a>
 
 <a href="https://subversion.american.edu/aisaac/notes/netlogo-intro.xhtml">https://subversion.american.edu/aisaac/notes/netlogo-intro.xhtml</a>
-
+</p>
+</small>
   </section>
 
 
