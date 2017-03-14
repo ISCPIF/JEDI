@@ -33,7 +33,7 @@
     document.getElementsByTagName( 'head' )[0].appendChild( link );
   }
   </script>
-
+<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
   <!--        remove default borders around images-->
   <style>
   .reveal section img {
@@ -72,9 +72,10 @@
       <section>
        <h1> Outline</h1>  
        <ul>
-        <li> What is Netlogo ? </li>
+        <li> <b> What is Netlogo ? </b></li>
         <li> A world of Agents</li>
-        <li> Patches</li>
+         <li> First steps</li>
+          <li> Patches</li>
         <li> Turtles</li>
         <li> Networks</li>
         <li> Interactions</li>
@@ -198,6 +199,26 @@ It allows to explore the connection between the <b>micro-level behavior</b> of i
 <small>sources : giphy.com , google images and <a href="http://www.cs.us.es/~fsancho/?e=137">http://www.cs.us.es/~fsancho/?e=137</a> </small>
     </section>
 
+
+
+ <section>
+ <h2>Outline</h2>
+  <ul>
+   <li> What is Netlogo ? </li>
+   <li><b> A world of Agents</b></li>
+    <li> First steps</li>
+     <li> Patches</li>
+   <li> Turtles</li>
+   <li> Networks</li>
+   <li> Interactions</li>
+   <li> Inputs / Outputs </li>
+   <li> Extensions</li>
+ </ul>
+
+</section>
+
+
+
 <section>
   <h2>A World of Agents </h2>
 <p>
@@ -216,7 +237,7 @@ Pretty much everything is agent
 
 
 <section>
-  <h2>Building a model</h2>
+  <h2>Building an ABM model</h2>
 
 is defining
  <p>
@@ -231,6 +252,23 @@ is defining
 </section>
 
 
+
+
+ <section>
+ <h2>Outline</h2>
+  <ul>
+   <li> What is Netlogo ? </li>
+   <li> A world of Agents</li>
+    <li> <b> First steps</b></li>
+     <li> Patches</li>
+   <li> Turtles</li>
+   <li> Networks</li>
+   <li> Interactions</li>
+   <li> Inputs / Outputs </li>
+   <li> Extensions</li>
+ </ul>
+
+</section>
 
 
 <section>
@@ -318,10 +356,10 @@ Suggestions: <p>
 </section>
 
 <section>
-  <h3>Model from scratch</h3>
+  <h3>Model from scratch : Code</h3>
 
 
-  <ol><li>Create some turtles, and name the procedure <b>setup</b></li>
+  <ol><li>Procedure <b>setup</b> : clear everything and create some turtles (20)</li>
 
 
     <p align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
@@ -333,7 +371,7 @@ to setup
 end
       </pre>
 
-    <li> Ask the turtles to move forward, name the procedure <b>move</b></li>
+    <li> Procedure <b>move</b> : ask the turtles to move forward (1 unit)</li>
 
   <p align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
 
@@ -346,7 +384,18 @@ end
   </ol>
 </section>
 
+<section>
+<h3>Model from scratch : Interface</h3>
+<br>
+<p align="left">
+Add a button (right click), type <b>setup</b> in the commands section
+<br><br>
+Add a button, type <b>move</b> in the commands section
+<br><br>
+<div style="color: #ff5c33" >Button commands have to match procedures names !</div>
 
+</p>
+</section>
 
 
 
@@ -371,12 +420,14 @@ black for the name of things you declare : variables , procedures
 
 
 <section>
-  <h3>Build the Interface</h3>
+  <h3>Editing the Interface</h3>
+<br>
+
 <ul>
   <li>Interface panel</li>
-  <li>Select / move / edit / delete stuff with right click</li>
-  <li>World characteristics via the Settings Button</li> 
-  <li> Mind the naming (e.g. avoid mixed cases , mixed dashes and underscores )</li>
+  <li>Select / move / edit / delete stuff with <b>right click</b></li>
+  <li>World characteristics via the <b>Settings</b> Button</li> 
+  <li> Mind the naming of the elements </li>
 </ul>
 
 
@@ -413,6 +464,45 @@ black for the name of things you declare : variables , procedures
 </ul>
 
 </section>
+
+
+ <section>
+ <h2>Outline</h2>
+  <ul>
+   <li> What is Netlogo ? </li>
+   <li> A world of Agents</li>
+   <li> First steps</li>
+   <li> <b>Patches</b></li>
+   <li> Turtles</li>
+   <li> Networks</li>
+   <li> Interactions</li>
+   <li> Inputs / Outputs </li>
+   <li> Extensions</li>
+ </ul>
+
+</section>
+
+
+<section>
+  
+The World is divided into <b>patches</b>, discrete surface units.
+<br>
+<br>
+<ul>
+  <li>automatically created at start up</li>
+
+<li>    laid out in a rectangular grid</li> 
+
+<li>    centered at integer locations </li> 
+
+    <li>immobile</li>
+
+    <li>identified by a fixed location (e.g., patch 0 0)</li>
+<li>colored in black by default</li>
+<li> World default size : 33 patches wide and 33 patches high</li>
+</ul>
+</section>
+
 
 
 
@@ -455,12 +545,12 @@ ask patches [ set pcolor white ]
 
 <section>
   <h3>Trial #1 Learnings</h3>
-
+<br>
 <ul>
   <li><b>ask </b> tell the agents what to do  </li>
   <li>Syntax : <div align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
 ask some-agents [do-something]
-<br>
+<p><br>
   <li><b>set</b> changes the value of a variable </li>
   <li>Syntax : <div align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
 set my-variable value
@@ -480,6 +570,7 @@ Patches is a <b>set</b> (of patches)
 <br>
 Sets elements can be <b>selected</b> by providing a <b>boolean condition</b> via the keyword <b>with</b>.    
 <br>
+<p><br>
 Syntax : <div align="left" style="font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace;" >
 my-set <font color="#cc66ff"> with </font> [my-condition]
 </p>
@@ -495,8 +586,138 @@ ask patches with [pxcor > 0 ]  [ set pcolor white ]
 </section>
 
 
+<section>
+  <h2> Trial #1 solution</h2>
+
+  Look at the model  <b>Dessin_patches.nlogo</b> and its code.
+</section>
 
 
+
+
+<section>
+  <h3>Trial #1 Learnings</h3>
+
+Patches have built-in variables :
+<br><p>
+<ul>
+  <li><b>pxcor </b> the x-coordinate of the patch </li>
+  <li><b>pycor </b> the y-coordinate of the patch </li>
+  <li><b>pcolor</b> the color of the patch (black by default)</li>
+  <li><b>plabel</b> the label of the patch (empty by default)</li>
+  <li><b>plabelcolor</b> the color of the patch (white by default)</li>
+</ul>
+<br>
+<br>
+
+Look at the model <b>patches.nlogo</b> to display coordinates as labels or display coordinates as colors shades.  
+
+</section>
+<section>
+  <h2> Going further with patches</h2>
+<p align="left">
+<br>
+  Patches can have their own attributes, declared at the beginning of the code : 
+<br>
+<pre>
+patches-own [my-patch-attribute1 my-patch-attribute2]
+</pre>  
+<p align="left">
+
+Patches are agents, and can interact with the others : patches, turtles.
+eg 
+<pre>
+clear-all
+ask patches [sprout 1]
+</pre>
+<p align="left">
+
+Look at the patches section of the <a href="https://ccl.northwestern.edu/netlogo/docs/dictionary.html">Netlogo dictionnary</a>, the <b>turtle_patch_interaction.nlogo</b> model , or the  <b>Diffusion_on_patches.nlogo</b> model 
+</p>
+
+
+</section>
+
+ <section>
+ <h2>Outline</h2>
+  <ul>
+   <li> What is Netlogo ? </li>
+   <li> A world of Agents</li>
+   <li> First steps</li>
+   <li> Patches</li>
+   <li> <b>Turtles</b></li>
+   <li> Networks</li>
+   <li> Interactions</li>
+   <li> Inputs / Outputs </li>
+   <li> Extensions</li>
+ </ul>
+
+</section>
+
+
+<section>
+  <h2> Turtles</h2>
+  <img src="img/nemo.jpg" style="width: 30%;">
+  <img src="img/tmnt.jpg" style="width: 33%;">
+  <img src="img/franklin.jpg" style="width: 33%;">
+
+
+</section>
+
+
+<section>
+
+
+  Turtles are:
+  <ul>
+    <li> user created (not automatically created at start up)</li>
+    <li> located at floating-point locations within the dimensions of the world</li>
+    <li>mobile (i.e., can change location)</li>
+    <li> identified by the order of creation (e.g., turtle 0)</li>
+    <li>have a heading attribute (direction for movement)</li>
+  </ul>
+
+  <br>
+  <p align="left">
+
+    Visual display:
+    <ul>
+      <li>colored, usually randomly by default</li>
+      <li>displayed in the model’s Graphics Window</li>
+      <li>drawn on top of the patches</li>
+    </ul>
+  </p>
+</section>
+
+
+<section>
+  <h3> TMNT </h3>
+<pre>
+turtles-own [name age genome skill]
+create 4 [
+          set age 12 + random 4
+          set skill "ninja"
+          set genome "mutant"  
+        ]
+ask turtle 0 [ 
+  set name "Leonardo"
+  set color blue
+  ]
+ask turtle 1 [ 
+  set name "Raphaël"
+  set color red
+  ]
+ask turtle 2 [ 
+  set name "Michelangelo"
+  set color orange
+  ]
+ask turtle 3 [ 
+  set name "Donatello"
+  set color violet
+  ]
+
+</pre>
+</section>
 
   <section>
 References :
