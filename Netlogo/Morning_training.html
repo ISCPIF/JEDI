@@ -489,15 +489,15 @@ The World is divided into <b>patches</b>, discrete surface units.
 <br>
 <br>
 <ul>
-  <li>automatically created at start up</li>
+  <li><b>automatically created</b> at start up</li>
 
-<li>    laid out in a rectangular grid</li> 
+<li>    laid out in a rectangular <b>grid</b></li> 
 
-<li>    centered at integer locations </li> 
+<li>    centered at <b>integer locations</b> </li> 
 
     <li>immobile</li>
 
-    <li>identified by a fixed location (e.g., patch 0 0)</li>
+    <li><b>identified by a fixed location</b> : No ids (e.g.  patch -5 8 )</li>
 <li>colored in black by default</li>
 <li> World default size : 33 patches wide and 33 patches high</li>
 </ul>
@@ -617,7 +617,7 @@ Look at the model <b>patches.nlogo</b> to display coordinates as labels or displ
   <h2> Going further with patches</h2>
 <p align="left">
 <br>
-  Patches can have their own attributes, declared at the beginning of the code : 
+  Patches can have their <b>own</b> attributes, declared at the beginning of the code : 
 <br>
 <pre>
 patches-own [my-patch-attribute1 my-patch-attribute2]
@@ -670,11 +670,11 @@ Look at the patches section of the <a href="https://ccl.northwestern.edu/netlogo
 
   Turtles are:
   <ul>
-    <li> user created (not automatically created at start up)</li>
-    <li> located at floating-point locations within the dimensions of the world</li>
-    <li>mobile (i.e., can change location)</li>
-    <li> identified by the order of creation (e.g., turtle 0)</li>
-    <li>have a heading attribute (direction for movement)</li>
+    <li> <b>user created</b> (not automatically created at start up)</li>
+    <li> located at <b>floating-point locations</b> within the dimensions of the world : attribute <b>xcor</b> and <b>ycor</b></li>
+    <li> mobile </li>
+    <li> identified by the order of creation: attribute <b>who</b> </li>
+    <li>have a <b>heading</b> attribute (angle)</li>
   </ul>
 
   <br>
@@ -682,9 +682,10 @@ Look at the patches section of the <a href="https://ccl.northwestern.edu/netlogo
 
     Visual display:
     <ul>
-      <li>colored, usually randomly by default</li>
+      <li>colored, at random by default. attribute <b>color</b></li>
       <li>displayed in the model’s Graphics Window</li>
-      <li>drawn on top of the patches</li>
+      <li>drawn <b>on top</b> of the patches</li>
+      <li>can <b>draw</b> using pen </li>
     </ul>
   </p>
 </section>
@@ -718,6 +719,80 @@ ask turtle 3 [
 
 </pre>
 </section>
+
+
+
+<section>
+  <h3>Trial #2</h3>
+  <p align="left">
+Setup:<br>
+Create <b><i>n</i></b> turtles <b>randomly located</b>
+<br><br>
+Go: <br>
+ <b>Random walk</b> (i.e. make them move randomly).
+</p>
+<br>
+<div style="color: #ff5c33" >No teleport !</div>
+
+</section>
+
+
+<section>
+  <h3>Trial #2 Hints</h3>
+  <p align="left">
+Location of turtles is achieved by setting their <b>xcor </b> and <b>ycor</b> attributes. 
+<br>
+Random turtles locations are built-in : <b>random-xcor</b> and <b>random-ycor</b>
+<br><br>
+Either
+<pre>
+  set xcor random-xcor
+  set ycor random-ycor
+</pre>
+<p align="left">
+or
+<pre>
+  setxy random-xcor yrandom-cor
+</pre>
+</section>
+
+
+<section>
+  <h3>Trial #2 Hints</h3>
+  <p align="left">
+Movement is combination of <b>rotation</b> and <b>translation</b>
+<br>
+<br>
+Rotation is either changing the heading attribute or rotate left or right by a number of degrees 
+<br>
+<br>
+<pre>  ask turtle 42 [right 45 ]</pre>
+
+
+<p align="left">
+
+or
+<pre>
+  ask turtle 42 [ set heading  heading + 45]
+</pre>
+</section>
+
+
+<section>
+<h3>Trial #3</h3>
+
+Add interaction to the Trial #2
+
+<br><br>
+Interaction:<br>
+When two turtles are <b>close</b>, their colors are set to the <b>mean</b> of their own previous color. 
+</section>
+
+
+<section>
+  <h3>Going further with turtles</h3>
+</section>
+
 
   <section>
 References :
