@@ -14,38 +14,30 @@ to setup
   ask patches
   [set grass (random 50) + 50
    set pcolor scale-color green grass 0 100
-
     ]
-
-
 end
 
 
 
 
-to move
-
+to go
   ask turtles[
-
-   set heading random 360
-
-
-  if [grass] of patch-ahead 1  > 3 [fd 1]
-
-   ask patch-at 0 0
+   set heading random 360  ;; randomize direction
+   ;; turtle move if there is grass right ahead
+   if ( [grass] of patch-ahead 1  > 3 )
+   [
+     fd 1
+   ]
+   ;; decrease the grass of the patch under the turtle
+   ask patch-here
    [
      if grass > 3 [set grass grass - 3]
    ]
-
   ]
 
-
-
-
-  ask patches
+  ask patches  ;; update color taint
   [
    set pcolor scale-color green grass 0 100
-
   ]
   tick
 end
@@ -53,10 +45,10 @@ end
 GRAPHICS-WINDOW
 210
 10
-649
-470
-16
-16
+647
+448
+-1
+-1
 13.0
 1
 10
@@ -100,7 +92,7 @@ BUTTON
 783
 174
 NIL
-move
+go\n
 T
 1
 T
@@ -463,9 +455,8 @@ false
 0
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
-
 @#$#@#$#@
-NetLogo 5.3.1
+NetLogo 6.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
@@ -481,7 +472,6 @@ true
 0
 Line -7500403 true 150 150 90 180
 Line -7500403 true 150 150 210 180
-
 @#$#@#$#@
 0
 @#$#@#$#@

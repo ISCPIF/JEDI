@@ -41,39 +41,25 @@ to add-link-random
    ask one-of turtles [
     create-link-with one-of other turtles
    ]
-
 end
 
 
 to destroy-link-random
-
   ask one-of links [die]
-
 end
-
-
-
-
-
-
-
-
-
 
 
 
 to diffuse-quantity  ;; give a fraction of turtle quantity to neighbors
  ask turtles [
-
   if any? link-neighbors [
    let nb-neighbors count link-neighbors
-   let share  ((percentage-diffuse / 100 ) * quantity) / nb-neighbors  ;; shore to be given at each neighbor
+   let share  ((percentage-diffuse / 100 ) * quantity) / nb-neighbors  ;; share to be given at each neighbor
    set quantity (quantity * (1 - (percentage-diffuse / 100 )))
   ask  link-neighbors [
    set quantity quantity + share
   ]
   ]
-
  set label floor quantity
  ]
 
@@ -127,15 +113,14 @@ to update-size-quantity ;; update size regarding the maximum quantity
   ]
   ]
 end
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 210
 10
-649
-470
-16
-16
+647
+448
+-1
+-1
 13.0
 1
 10
@@ -200,7 +185,7 @@ nb-turtles
 nb-turtles
 0
 30
-27
+12.0
 1
 1
 NIL
@@ -212,7 +197,7 @@ BUTTON
 816
 162
 NIL
-link-to-another\n
+link-to-another
 NIL
 1
 T
@@ -263,7 +248,7 @@ BUTTON
 569
 580
 NIL
-update-size-degree\n
+update-size-degree
 NIL
 1
 T
@@ -300,7 +285,7 @@ percentage-diffuse
 percentage-diffuse
 0
 100
-80
+40.0
 10
 1
 NIL
@@ -343,7 +328,7 @@ BUTTON
 1097
 157
 NIL
-add-link-random\n
+add-link-random
 NIL
 1
 T
@@ -370,6 +355,17 @@ NIL
 NIL
 NIL
 1
+
+MONITOR
+88
+672
+171
+717
+NIL
+count links
+17
+1
+11
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -712,9 +708,8 @@ false
 0
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
-
 @#$#@#$#@
-NetLogo 5.3.1
+NetLogo 6.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
@@ -730,7 +725,6 @@ true
 0
 Line -7500403 true 150 150 90 180
 Line -7500403 true 150 150 210 180
-
 @#$#@#$#@
 0
 @#$#@#$#@

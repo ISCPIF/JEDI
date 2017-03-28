@@ -33,7 +33,7 @@
     document.getElementsByTagName( 'head' )[0].appendChild( link );
   }
   </script>
-<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+ <!--<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>-->
   <!--        remove default borders around images-->
   <style>
   .reveal section img {
@@ -858,6 +858,7 @@ Drawing tracks is achieved by the command <b>pen-down</b><br>
 <ul>
   <li>Directed or undirected </li>
   <li>Can have their own attributes (e.g. weight)</li>
+  <li> have acces to their nodes : <pre style="display: inli"><b>end1</b> and <b>end2</b> or <b>both-ends</b></pre>
 </ul>
 <img src="img/links.jpg" width="50%" >
 </section>
@@ -865,12 +866,12 @@ Drawing tracks is achieved by the command <b>pen-down</b><br>
 <section>
   <h2>Links creation</h2>
 <ul>
-<li>create-link-to</li>
-<li>create-links-to</li>
-<li>create-link-from</li>
-<li>create-links-from</li>
-<li>create-link-with</li>
-<li>create-links-with</li>
+<li><pre>create-link-to  </pre></li>
+<li><pre>create-links-to  </pre></li>
+<li><pre>create-link-from  </pre></li>
+<li><pre>create-links-from  </pre></li>
+<li><pre>create-link-with  </pre></li>
+<li><pre>create-links-with  </pre></li>
 </ul>
 <p align="left">
 <br>Example : <br>
@@ -900,13 +901,29 @@ Agentsets are <b>sets of agents</b>
 <img src="img/areyoukiddingme.png" width="15%">
 <p align="left" style="font-size: 70%">
 Agentsets are used to define things like <i>"some agents", "agents with this and that", "agent do something to each other"</i>
+<br><br>
+Common agentsets :
+<ul style="float: left; font-size: 70%">
+  <li>turtles, patches , links</li>
+  <li> turtles-here, turtle-on, neighbors</li>  
+  <li>link-neighbors, in-link-neighbors, out-link-neighbors</li>
+</ul>
+</p>
+</section>
+
+
+<section>
+<h2>Agentsets</h2>
 <br>Various set operations, according to <b>reporters</b> or not
 <pre>
 one-of
 n-of
 other
+[reporter] of 
 max-one-of [reporter]
 max-n-of [reporter]
+sort-on[reporter]
+count
 member?
 any?
 all?</pre>
@@ -919,7 +936,52 @@ Fully connected undirected network :
 <pre>ask turtles [create-links-with other turtles]</pre>
 <p align="left">
 
+Random undirected network , <i>n</i> nodes, <i>n</i> links:
+<pre>ask turtles [create-links-with one-of other turtles]</pre>
+
+<p align="left">
+Constant degree (4) random network:
+<pre>ask turtles [create-links-with n-of 4 other turtles]</pre>
+
 </section>
+
+
+<section>
+  <h2>Trial #3</h2>
+  <br>
+  <p align="left">
+  Build a <b>preferential attachment</b> network generator.
+  <br><br>
+  Starting from an inital network, nodes are added, and <b>preferentially</b> attached to high degree nodes
+  
+
+  <br><br>
+<pre>to setup 
+  clear-all
+  set-defaukt-shapes turtles "circle"
+  crt 20 \[
+    create-links-with n-of (1 + random 3) other turtles
+  \]
+end</pre>
+<br>
+
+  <font color="#ff5c33">Resist the urge to copy the code from the model library </font>
+</section>
+
+<section>
+  <h2>Trial #3 hints</h2>
+  <br>
+  <p align="left">
+  Degree is obtained by <b>counting neighbors</b>
+  <br><br>
+  Weighted probability draw is tricky (look on google with "weighted probabilty draw netlogo")
+  <br><br>
+  Observe and admire the simplicity of the model library solution. WHy does it work ? 
+</section>
+
+
+
+
 
 
 <section>
@@ -929,6 +991,39 @@ Fully connected undirected network :
   The doc on the network extension
 <a href="https://ccl.northwestern.edu/netlogo/docs/nw.html">https://ccl.northwestern.edu/netlogo/docs/nw.html</a>
 </section>
+
+
+   <section>
+       <h1> Outline</h1>  
+       <ul>
+        <li>  What is Netlogo ? </li>
+        <li> A world of Agents</li>
+         <li> First steps</li>
+          <li> Patches</li>
+        <li> Turtles</li>
+        <li> Networks</li>
+        <li> <b>Interactions</b></li>
+        <li> Inputs / Outputs </li>
+        <li> Extensions</li>
+      </ul>
+
+
+    </section>
+
+
+
+<section> 
+<h2>Introduction</h2>
+<br><br>
+<p align="left">
+Look at the model <b>turtle_patch_interaction.nlogo</b> where turtles wander in the world, consuming grass of the patches
+<br><br>
+patches are affected by turtles (color)
+<br><br>
+turtles are affected by patches around them
+<br><br>
+</section>  
+
 
 <section>
 <h3>Trial #4</h3>
@@ -958,15 +1053,17 @@ When two turtles are <b>close</b>, their colors are set to the <b>mean</b> of th
 <h3>Trial #4 hints </h3>
 <p align="left">
 
-obtain the set of turtles at a given  distance Dist of a turtle using selection (with)
+One way to obtain the set of turtles at a given  distance Dist of a turtle using selection (with)
 <pre> ask turtles [
-    ask turtles with [distance myself < Dist]
+    ask turtles with [distance self < Dist]
       [
-        <i>average your color with color of myself  </i>
+        <i>average your color with color of self  </i>
       ] 
 ]</pre>
-
-Also : <b>in-radius</b> built in procedure does the same thing.
+<p align="left">
+Also : <br>
+<b>self</b> means "me" , the agent called
+<br>check out <b>in-radius</b> built-in procedure.
 
 
 </section>
@@ -998,7 +1095,7 @@ YOU ask agents to ask <b>SOME OTHERS</b> to do something
 </div>]</pre>
 <p align="left">
 <br>
-other something = every element of something <b>except the caller</b>
+other = every element <b>except the caller</b>
 
 <br>
 <br>
@@ -1026,7 +1123,7 @@ YOU ask agents to ask <b>SOME OTHERS</b> to do something
 </div>]</pre>
 <p align="left">
 <br>
-other XXXXX = every element of XXXXX <b>except the caller</b>
+other = every element  <b>except the caller</b>
 
 <br>
 <br>
@@ -1037,26 +1134,44 @@ How many times "that" is done ? (for <i>n</i> turtles)
 </section>
 
 
-
-
-
-
 <section>
+  <h2>Interaction insights</h2>
 
-Remember the selection operator  <font color="#cc66ff"> with </font> which filters agents according to a <b>condition</b>
+netlogo is perfect for reactive agents e.g.:
+<pre>
+ask turtles [ 
+  <i>check stimuli</i>
+  ifelse <i>test</i> [...] 
+]  
+</pre>
 
-<br> <br>
 
-
-
+<br><br>
+As a modeler, you don't check yourself the world state and update it, 
+you describe only the agents behaviors and let the world evolve on its own.
 
 </section>
 
 
 
 
+
 <section>
   <h3>Going further with turtles</h3>
+
+<br>
+<b>Breeds</b> allow to specialize turtles
+<br>
+<pre>
+breed [ sheep a-sheep ]  
+breed [ wolves wolf ]
+sheep-own [wool]
+wolves-own [maw]
+</pre>
+<br>
+Breeds are called like agents :
+<pre>ask wolf 0 [ <i>growl</i> ]
+ask sheep[ <i>say "Baaa"</i>]</pre>
 </section>
 
 

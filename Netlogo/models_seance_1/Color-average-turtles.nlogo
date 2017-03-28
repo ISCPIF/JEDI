@@ -42,8 +42,8 @@ end
 
 
 to average-color2
-  let mean-color mean [color] of turtles with [distance myself < 1]
-  ask turtles with [distance myself < 1]
+  let mean-color mean [color] of turtles with [distance self < 1]
+  ask turtles with [distance self < 1]
   [
       set color mean-color
   ]
