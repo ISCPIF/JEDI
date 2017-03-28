@@ -1,45 +1,53 @@
 to setup
   clear-all
-  create-turtles 20
-  [
-    set xcor random-xcor
-    set ycor random-ycor
-    set color orange
-    set shape "circle"
+crt nb-turtles[
+  setxy random-xcor random-ycor
+]
+  update-plots
+end
+
+
+to go
+  ask turtles [
+    move
+    average-color
+  ]
+  update-plots
+end
+
+to go2
+  ask turtles [
+    move
+    average-color2
+  ]
+  update-plots
+end
+
+
+
+
+to move
+  pen-down
+   set heading (heading - (turn / 2) + random turn ) ;;
+  fd step
+end
+
+
+to average-color
+  let mean-color mean [color] of turtles-here
+    ask turtles-here[
+      set color mean-color
     ]
 end
 
 
-to link-to-another
-  ask turtles
+to average-color2
+  let mean-color mean [color] of turtles with [distance myself < 1]
+  ask turtles with [distance myself < 1]
   [
-   create-link-to one-of other turtles
- ]
-end
-
-
-to update-size
-
-  ask turtles [
-    let degree count in-link-neighbors
-      if degree > 1 [set size degree]
-
+      set color mean-color
   ]
-
-end
-
-
-to layout-in-circle
-   layout-circle turtles 10
-end
-
-to move
-
-  ask turtles [
-    set heading random 360
-    fd 0.01
-  ]
-
+  set color mean-color
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -56,8 +64,8 @@ GRAPHICS-WINDOW
 1
 1
 0
-0
-0
+1
+1
 1
 -16
 16
@@ -69,13 +77,28 @@ GRAPHICS-WINDOW
 ticks
 30.0
 
-BUTTON
-378
-486
-451
-519
+SLIDER
+19
+79
+191
+112
+nb-turtles
+nb-turtles
+0
+100
+14.0
+1
+1
 NIL
-setup\n
+HORIZONTAL
+
+BUTTON
+712
+98
+785
+131
+NIL
+setup
 NIL
 1
 T
@@ -87,13 +110,13 @@ NIL
 1
 
 BUTTON
-703
-251
-841
-284
+668
+186
+731
+219
 NIL
-link-to-another
-NIL
+go
+T
 1
 T
 OBSERVER
@@ -103,48 +126,86 @@ NIL
 NIL
 1
 
-BUTTON
-718
-306
-832
-339
-update-size
-update-size
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
-BUTTON
-707
-360
-842
-393
-NIL
-layout-in-circle\n
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
-TEXTBOX
-38
-75
-188
-135
-Link formation among turtles\nSize is updated w.r.t. degree of the turtles
-12
+PLOT
+772
+286
+972
+436
+Color distribution
+color
+count
 0.0
+140.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 5.0 1 -5825686 true "histogram [color] of turtles" "histogram [color] of turtles"
+
+BUTTON
+693
+37
+821
+70
+NIL
+clear-drawing
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
+SLIDER
+24
+148
+196
+181
+step
+step
+0
+2
+0.4
+0.2
+1
+NIL
+HORIZONTAL
+
+SLIDER
+29
+203
+201
+236
+turn
+turn
+0
+180
+25.0
+5
+1
+NIL
+HORIZONTAL
+
+BUTTON
+668
+248
+731
+281
+NIL
+go2
+T
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
 1
 
 @#$#@#$#@

@@ -1,45 +1,24 @@
 to setup
   clear-all
-  create-turtles 20
-  [
-    set xcor random-xcor
-    set ycor random-ycor
-    set color orange
-    set shape "circle"
-    ]
+crt nb-turtles[
+  setxy random-xcor random-ycor
+]
+  update-plots
 end
 
 
-to link-to-another
-  ask turtles
-  [
-   create-link-to one-of other turtles
- ]
-end
-
-
-to update-size
-
+to go
   ask turtles [
-    let degree count in-link-neighbors
-      if degree > 1 [set size degree]
-
+    move
   ]
-
+  update-plots
 end
 
-
-to layout-in-circle
-   layout-circle turtles 10
-end
 
 to move
-
-  ask turtles [
-    set heading random 360
-    fd 0.01
-  ]
-
+  pen-down
+   set heading (heading - 90 + random 180) ;;
+  fd 0.2
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -56,8 +35,8 @@ GRAPHICS-WINDOW
 1
 1
 0
-0
-0
+1
+1
 1
 -16
 16
@@ -69,13 +48,28 @@ GRAPHICS-WINDOW
 ticks
 30.0
 
-BUTTON
-378
-486
-451
-519
+SLIDER
+44
+115
+216
+148
+nb-turtles
+nb-turtles
+0
+100
+22.0
+1
+1
 NIL
-setup\n
+HORIZONTAL
+
+BUTTON
+712
+98
+785
+131
+NIL
+setup
 NIL
 1
 T
@@ -87,13 +81,13 @@ NIL
 1
 
 BUTTON
-703
-251
-841
-284
+668
+186
+731
+219
 NIL
-link-to-another
-NIL
+go
+T
 1
 T
 OBSERVER
@@ -103,48 +97,39 @@ NIL
 NIL
 1
 
-BUTTON
-718
-306
-832
-339
-update-size
-update-size
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
-BUTTON
-707
-360
-842
-393
-NIL
-layout-in-circle\n
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
-TEXTBOX
-38
-75
-188
-135
-Link formation among turtles\nSize is updated w.r.t. degree of the turtles
-12
+PLOT
+772
+286
+972
+436
+Color distribution
+color
+count
 0.0
+140.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 5.0 1 -5825686 true "histogram [color] of turtles" "histogram [color] of turtles"
+
+BUTTON
+693
+37
+821
+70
+NIL
+clear-drawing
+NIL
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
 1
 
 @#$#@#$#@

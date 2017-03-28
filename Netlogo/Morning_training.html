@@ -763,7 +763,7 @@ or
 Movement is combination of <b>rotation</b> and <b>translation</b>
 <br>
 <br>
-Rotation is either changing the heading attribute or rotate left or right by a number of degrees 
+Rotation is either changing the <b>heading</b> attribute or rotate <b>left</b>  or <b>right</b> by a number of degrees (built in commands) 
 <br>
 <br>
 <pre>  ask turtle 42 [right 45 ]</pre>
@@ -775,11 +775,163 @@ or
 <pre>
   ask turtle 42 [ set heading  heading + 45]
 </pre>
+
+<p align="left">
+heading = angle between 0 and 360
+<br>North is 0
+</section>
+
+<section>
+  <h3>Trial #2 Hints</h3>
+  <p align="left">
+Movement is combination of <b>rotation</b> and <b>translation</b>
+<br>
+<br>
+Translation is moving <b>forward</b> or <b>backward</b>  by a number of steps (built in commands) in the direction of turtle heading 
+<br>
+
+<pre>  ask turtle 42 [forward 2.5]</pre>
+<br>
+
+<p align="left">
+
+or, use <b>jump</b> (which is basically teleporting) 
+<pre>
+  ask turtle 42 [ repeat 10 jump 0.25]
+</pre>
+<p align="left">
+<br>
+Moving is teleporting smoothly (only in a discrete world !)
+
+</section>
+
+
+
+<section>
+<h3>Trial #2 Solution</h3>
+
+Look at the <b>random-walk.nlogo</b> model
+<br><br>
+Drawing tracks is achieved by the command <b>pen-down</b><br>
 </section>
 
 
 <section>
-<h3>Trial #3</h3>
+<h3>Trial #2 Learnings</h3>
+<ul>
+  <li>Turtles are mobile agents</li>
+  <li>Turtles can have their own user-defined attributes</li>
+  <li>Turtles can be translated and rotated</li>
+</ul>
+
+</section>
+
+    <section>
+       <h1> Outline</h1>  
+       <ul>
+        <li> What is Netlogo ? </li>
+        <li> A world of Agents</li>
+         <li> First steps</li>
+          <li> Patches</li>
+        <li> Turtles</li>
+        <li> <b>Networks</b></li>
+        <li> Interactions</li>
+        <li> Inputs / Outputs </li>
+        <li> Extensions</li>
+      </ul>
+</section>  
+
+
+<section>
+  <h2>Networks in netlogo</h2>
+
+  <ul>
+    <li>Turtles are <b>nodes</b></li>
+    <li><b>Links</b> are <b>agents</b> connecting nodes</li>
+    <li>that's  all</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Links </h2>
+
+<ul>
+  <li>Directed or undirected </li>
+  <li>Can have their own attributes (e.g. weight)</li>
+</ul>
+<img src="img/links.jpg" width="50%" >
+</section>
+
+<section>
+  <h2>Links creation</h2>
+<ul>
+<li>create-link-to</li>
+<li>create-links-to</li>
+<li>create-link-from</li>
+<li>create-links-from</li>
+<li>create-link-with</li>
+<li>create-links-with</li>
+</ul>
+<p align="left">
+<br>Example : <br>
+<pre>
+ask turtles[
+   create-link-to one-of other turtles
+ ]
+end</pre>
+</section>
+
+
+<section><h2>  Things are getting harder
+</h2>
+<br><br>
+To understand:
+<pre>create-link-to one-of other turtles</pre>
+
+We must introduce <b>agentsets</b>
+
+</section>
+
+<section>
+<h2>Agentsets</h2>
+  <p align="left">
+Agentsets are <b>sets of agents</b>
+</p>
+<img src="img/areyoukiddingme.png" width="15%">
+<p align="left" style="font-size: 70%">
+Agentsets are used to define things like <i>"some agents", "agents with this and that", "agent do something to each other"</i>
+<br>Various set operations, according to <b>reporters</b> or not
+<pre>
+one-of
+n-of
+other
+max-one-of [reporter]
+max-n-of [reporter]
+member?
+any?
+all?</pre>
+</section>
+
+<section>
+  <h2>Back to Networks</h2>
+<p align="left">
+Fully connected undirected network :
+<pre>ask turtles [create-links-with other turtles]</pre>
+<p align="left">
+
+</section>
+
+
+<section>
+  <h2>A must-read</h2>
+
+  <br>
+  The doc on the network extension
+<a href="https://ccl.northwestern.edu/netlogo/docs/nw.html">https://ccl.northwestern.edu/netlogo/docs/nw.html</a>
+</section>
+
+<section>
+<h3>Trial #4</h3>
 
 Add interaction to the Trial #2
 
@@ -787,6 +939,120 @@ Add interaction to the Trial #2
 Interaction:<br>
 When two turtles are <b>close</b>, their colors are set to the <b>mean</b> of their own previous color. 
 </section>
+
+
+<section>
+<h3>Trial #4 hints </h3>
+<p align="left">
+  "Select close turtles" means defining what is "close" : a <b>threshold of distance</b>
+
+<ul style="float: left;">
+  <li>By their common location patches (implicit threshold : patch size)</li>
+  <li>By their separating distance (explicit threshold)</li>
+</ul>
+</section>
+
+
+
+<section>
+<h3>Trial #4 hints </h3>
+<p align="left">
+
+obtain the set of turtles at a given  distance Dist of a turtle using selection (with)
+<pre> ask turtles [
+    ask turtles with [distance myself < Dist]
+      [
+        <i>average your color with color of myself  </i>
+      ] 
+]</pre>
+
+Also : <b>in-radius</b> built in procedure does the same thing.
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+<h3>Agensets Introduction : nested asks </h3>
+<p align="left">
+
+
+ 
+You can <b>nest</b> the ask commands.
+<br>
+YOU ask agents to ask <b>SOME OTHERS</b> to do something
+<br>
+
+<pre>ask turtles [
+<div style="background-color: #cce6ff;">    <i>do this </i>
+    ask other turtles [
+       <i>do that </i>
+       ]
+    ]
+</div>]</pre>
+<p align="left">
+<br>
+other something = every element of something <b>except the caller</b>
+
+<br>
+<br>
+<br>
+</section>
+
+
+
+
+<section>
+<h3>Agensets Introduction : nested asks </h3>
+<p align="left">
+
+
+ 
+You can <b>nest</b> the ask commands.
+<br>
+YOU ask agents to ask <b>SOME OTHERS</b> to do something
+<br>
+
+<pre>ask turtles [
+<div style="background-color: #cce6ff;">    <i>do this </i>
+    ask other turtles [<div style="background-color: #e6ccff;">       <i>do that </i></div>       ]
+    ]
+</div>]</pre>
+<p align="left">
+<br>
+other XXXXX = every element of XXXXX <b>except the caller</b>
+
+<br>
+<br>
+How many times "this" is done ? <br>
+How many times "that" is done ? (for <i>n</i> turtles)
+
+
+</section>
+
+
+
+
+
+
+<section>
+
+Remember the selection operator  <font color="#cc66ff"> with </font> which filters agents according to a <b>condition</b>
+
+<br> <br>
+
+
+
+
+</section>
+
+
 
 
 <section>
@@ -829,8 +1095,9 @@ References :
       history: true,
       center: true,
       theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-      slideNumber: true,
+      //transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      transition: 'fade',
+           slideNumber: true,
 
       // Optional libraries used to extend on reveal.js
       dependencies: [
